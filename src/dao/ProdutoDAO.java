@@ -22,7 +22,7 @@ public class ProdutoDAO {
     private PreparedStatement stmt;
     private Statement st;
     private ResultSet rs;
-    private ArrayList<Produto> lista = new Arraylist<Produto>();
+    private ArrayList<Produto> lista = new ArrayList<Produto>();
     
     public ProdutoDAO() {
         conn = new ConnectionFactory().getConexao();
@@ -56,7 +56,7 @@ public class ProdutoDAO {
     }
     
     public void excluir(int valor) {
-        String sql = "DELETE FROM produto WHERE (descricao_produto, preco_produto) VALUES (?,?)";
+        String sql = "DELETE FROM produto WHERE codigo_produto = " + valor;
         try {
             st = conn.createStatement();
             st.execute(sql);

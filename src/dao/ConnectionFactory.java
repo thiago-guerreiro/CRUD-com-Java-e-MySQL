@@ -14,9 +14,13 @@ import java.sql.DriverManager;
  */
 public class ConnectionFactory {
     
+    private static final String URL = "jdbc:mysql://localhost:3306/mercado?useTimezone=true&serverTimezone=UTC";
+    private static final String USER = "root";
+    private static final String PASS = "1234";
+    
     public Connection getConexao() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/mercado","root","1234");
+            return DriverManager.getConnection(URL,USER,PASS);
         } catch (Exception erro) {
             throw new RuntimeException("Erro 1: " + erro);
         }
